@@ -5,7 +5,7 @@ function Splash(level, origin, secondary, speed, decay){
 
 	this.decay = (typeof decay === "undefined") ? 0.002 + Math.random() * 0.004 : decay;
 
-	this.origin = (typeof origin === "undefined") ? new Vector(Math.random() * this.canvas.width, Math.random() * this.canvas.height) : origin;//new Vector();
+	this.origin = origin;
 
 	this.secondary = secondary;
 
@@ -13,17 +13,12 @@ function Splash(level, origin, secondary, speed, decay){
 
 	this.secondaries = [];
 
-	this.color = {
-		r: 0,
-		g: 255 - g.bgColor.g,
-		b: 255 - g.bgColor.b,
-	};
+	this.canvas = this.prototype.canvas;
+	this.context = this.prototype.context;
 
 	this.init();
 };
 
-Splash.prototype.canvas = null;
-Splash.prototype.context = null;
 Splash.prototype.MAXLEVEL = 5;
 
 Splash.prototype.init = function(){
@@ -70,11 +65,6 @@ Splash.prototype.draw = function() {
 
 	var _c = Math.floor(255 * this.strength);
 
-	// this.context.strokeStyle = "rgb(" +
-	// 	Math.floor(this.color.r * this.strength + g.bgColor.r) + "," +
-	// 	Math.floor(this.color.g * this.strength + g.bgColor.g) + "," +
-	// 	Math.floor(this.color.b * this.strength + g.bgColor.b) + ")";
-	// this.context.strokeStyle = "rgba(" + this.color.r + ", " + this.color.g + ", " + this.color.b + ", " + this.strength + ")";
 	this.context.strokeStyle = "rgba(0,155,155, " + this.strength + ")";
 
 	this.context.lineWidth = (this.level + 1) * 5 * this.strength;

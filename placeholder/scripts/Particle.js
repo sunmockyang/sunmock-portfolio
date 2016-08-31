@@ -12,10 +12,11 @@ function Particle(pos){
 	this.radius = Math.random() * 4 + 3;
 
 	this.randomPush = 0.1;
-}
 
-Particle.prototype.canvas = null;
-Particle.prototype.context = null;
+	this.canvas = this.prototype.canvas;
+	this.context = this.prototype.context;
+};
+
 Particle.prototype.radius = 3;
 
 Particle.prototype.color = {
@@ -32,7 +33,7 @@ Particle.prototype.update = function() {
 	this.speed = this.speed.add(this.accel);
 	this.pos = this.pos.add(this.speed);
 	this.speed = this.speed.multiply(this.friction);
-	this.accel.reset();
+	this.accel.zeroify();
 
 	if(this.pos.x < 0) {
 	    this.pos.x = 0;

@@ -1,8 +1,10 @@
 <html>
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <head>
 	<title>Sunmock Yang's Portfolio Website</title>
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'> -->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
 	<style type="text/css">
 	body{
 		margin: 0px;
@@ -80,13 +82,13 @@
 </head>
 
 <body>
-	<span id="title">
+	<!-- <span id="title">
 		<span id="name">Sunmock Yang</span>
 		<br/>
 		<span id="pWebsite">Portfolio Website</span>
 		<br/>
 	<span id="enter"><a href="http://sunmock.com" onmousedown="this.innerHTML = 'Click.'" onmouseout="this.innerHTML = 'Enter Here'">Enter Here</a></span>
-	</span>
+	</span> -->
 
 
 	<canvas id="canvas" width="1000px" height="600px">
@@ -94,141 +96,24 @@
 	</canvas>
 
 	<script type="text/javascript">
-	var framerate = 30;
-
-	var g = {
-		canvas: null,
-		context: null,
-		bgColor: {
-			r: 15,
-			g: 5,
-			b: 3                                 
-		},
-
-		mouse: null,
-
-		lastSplash: 0,
-
-		spawnChance: 0.01,
-
-		splashes: [],
-		particles: [],
-
-		enterPos: null
-	}
+	var app = null;
 
 	function init(){
-		g.canvas = document.getElementById('canvas');
-		g.context = g.canvas.getContext("2d");
-
-		Splash.prototype.canvas = g.canvas;
-		Splash.prototype.context = g.context;
-
-		Particle.prototype.canvas = g.canvas;
-		Particle.prototype.context = g.context;
-
-		// g.lastSplash = new Vector();
-
-		g.mouse = new LibraryMouse(g.canvas);
-		g.mouse.addEventListener("mousemove", function(){SpawnSplash(new Vector(g.mouse.x, g.mouse.y))});
-		g.mouse.addEventListener("mousedown", function(){SpawnSplash(new Vector(g.mouse.x, g.mouse.y))});
-		// g.mouse.addEventListener("mouseup", function(){});
-		// g.mouse.addEventListener("mouseout", function(){});
-		// g.mouse.addEventListener("mouseover", function(){});
-
-		document.getElementById("name").onmousemove = g.mouse.mousemove;
-		document.getElementById("pWebsite").onmousemove = g.mouse.mousemove;
-
-		SpawnSplash();
-
-		onresize();
-
-		run();
-	}
-
-	function update(){
-		if(Math.random() < g.spawnChance && g.splashes.length < 3 && g.lastSplash > 45 || g.particles.length === 0){
-			SpawnSplash();
-		}
-
-		var deathList = [];
-		for(var i=0; i<g.splashes.length; i++){
-			g.splashes[i].update();
-			if(g.splashes[i].strength <= 0)
-				deathList.push(i);
-		}
-
-		for (var i = 0; i < deathList.length; i++) {
-			g.splashes.splice(deathList[i], 1);
-		};
-
-		g.lastSplash++;
-
-		deathList = [];
-		for (var i = 0; i < g.particles.length; i++) {
-			g.particles[i].update();
-
-			if(g.particles[i].strength <= 0)
-				deathList.push(i);
-		};
-
-		for (var i = 0; i < deathList.length; i++) {
-			g.particles.splice(deathList[i], 1);
-		};
-	}
-
-	function draw(){
-		// g.context.fillStyle = "rgb(" + g.bgColor.r + "," + g.bgColor.g + "," + g.bgColor.b + ")";
-		// g.context.fillRect(0,0,g.canvas.width, g.canvas.height);
-
-		g.context.clearRect(0,0,g.canvas.width, g.canvas.height);
-
-		for(var i=0; i<g.splashes.length; i++){
-			g.splashes[i].draw();
-		}
-
-		for(var i=0; i<g.particles.length; i++){
-			g.particles[i].draw();
-		}
-	}
-
-	function SpawnSplash(origin){
-		if(g.splashes.length > 20)
-			return;
-
-		// if(typeof origin != "undefined" && origin.sub(g.lastSplash).mag() > 80){
-		if(typeof origin === "undefined" || (typeof origin != "undefined" && g.lastSplash > 30)){
-			g.splashes.push(new Splash(Math.ceil(Math.random() * 2), origin));
-			g.lastSplash = 0;
-
-			for (var i = 0; i < 5; i++) {
-				g.particles.push(new Particle(origin || g.splashes[g.splashes.length-1].origin));
-			};
-		}
+		app = new SplashApp(document.getElementById('canvas'));
 	}
 
 	function onresize(){
-		var w = window.innerWidth;
-		var h = window.innerHeight;
-		g.canvas.setAttribute("width", w.toString());
-        g.canvas.setAttribute("height", h.toString());
-
-        g.enterPos = new Vector(w/2, h - 20);
-
-        for (var i = 0; i < g.splashes.length; i++) {
-        	g.splashes[i].onresize();
-        };
+        app.onresize();
 	}
 
-	function run(){update();draw();window.requestAnimationFrame(run);};
+    document.body.onresize = onresize;
 
 	window.onload = init;
 	window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
                               window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-
-    document.body.onresize = onresize;
 	</script>
 
+	<script type="text/javascript" src="scripts/SplashApp.js"></script>
 	<script type="text/javascript" src="scripts/Math.js"></script>
 	<script type="text/javascript" src="scripts/LibraryMouse.min.js"></script>
 	<script type="text/javascript" src="scripts/Splash.js"></script>
