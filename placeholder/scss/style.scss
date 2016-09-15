@@ -1,0 +1,51 @@
+@import "fonts";
+
+body{
+	margin: 0px;
+	background-color: #150503;
+	color: #9FF;
+	color: #FFB;
+	font-family: "Walsheim";
+}
+
+#canvas{
+	margin: 0px;
+	position: fixed;
+	top: 0;
+	z-index: -2;
+}
+
+$content-width: 38rem;
+
+.title {
+	position: fixed;
+	font-size: 5rem;
+	width: 80%;
+	margin: 0 auto;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+}
+
+.subtitle {
+	font-size: 1rem;
+	margin:0 auto;
+}
+
+.wrapper {
+	width:80%;
+	margin: 0 auto;
+	margin-top: 95vh;
+}
+
+@media only screen and (max-width: 775px), only screen and (max-device-width: 775px) {
+	.title {
+		text-align: center;
+		font-size: 10vw;
+	}
+
+	.subtitle {
+		// width: 100%;
+		text-align: center;
+	}
+}

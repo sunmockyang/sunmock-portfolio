@@ -5,95 +5,26 @@
 	<title>Sunmock Yang's Portfolio Website</title>
 	<!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'> -->
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
-	<style type="text/css">
-	body{
-		margin: 0px;
-		background-color: #150503;
-	}
-
-	canvas{
-		margin: 0px;
-	}
-
-	#title{
-		position: absolute;
-
-		margin: auto;
-		width: 350px;
-		height: 130px;
-		text-align: center;
-  		top: 0; left: 0; bottom: 0; right: 0;
-  		font-family: 'Source Sans Pro', sans-serif;
-
-  		cursor: default;
-	}
-
-	#name{
-		color: #FFB;
-		font-size: 36pt;
-		font-weight: 400;
-	}
-
-	#pWebsite{
-		color: #9FF;
-		font-size: 14pt;
-		font-weight: 300;
-		position: relative;
-		top: -10px;
-		font-style: italic;
-	}
-
-	hr{
-		position: relative;
-		width:200px;
-		top: -10px;
-	}
-
-	#enter{
-		color: #FFB;
-		/*position: absolute;*/
-  		font-family: 'Source Sans Pro', sans-serif;
-		margin: 0 auto;
-		width: 250px;
-		left: 0; bottom: 10; right: 0;
-		text-align: center;
-		vertical-align: middle;
-		font-size: 18pt;
-		font-weight: 400;
-		/*font-style: italic;*/
-
-		transition: color 0.1s ease, font-size 0.1s ease;
-	}
-
-	#enter:hover{
-		color:#BFF;
-		font-size: 24pt;
-	}
-
-	#enter:active{
-		font-weight:300;
-	}
-
-	a{
-		color: inherit;
-		text-decoration: inherit;
-	}
-	</style>
+	<link href='fonts/GT-Walsheim-Pro-Trial-Regular.otf' rel='stylesheet' type='text/css'>
+	<link href='style.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-	<!-- <span id="title">
-		<span id="name">Sunmock Yang</span>
-		<br/>
-		<span id="pWebsite">Portfolio Website</span>
-		<br/>
-	<span id="enter"><a href="http://sunmock.com" onmousedown="this.innerHTML = 'Click.'" onmouseout="this.innerHTML = 'Enter Here'">Enter Here</a></span>
-	</span> -->
-
-
+	<div class="title">
+		Sunmock Yang
+		<div class="subtitle">
+			Hello there! I like music, programming, and a whole lotta things in between. Here's a glimpse into my head.
+			<div class="links"></div>
+		</div>
+	</div>
 	<canvas id="canvas" width="1000px" height="600px">
-		Welcome to Sunmock Yang's portfolio
+		Welcome to Sunmock Yang's personal website.
 	</canvas>
+
+	<div class="wrapper">
+		<div class="section-title">Who am I?</div>
+		<div class="section-text">My name is Sunmock Yang, I am a 24 year old Korean Canadian, programmer, violist, who likes making useful things, making useless things, hanging with friends, and going fishing.</div>
+	</div>
 
 	<script type="text/javascript">
 	var app = null;
