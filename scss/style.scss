@@ -5,7 +5,27 @@ body{
 	background-color: #150503;
 	color: #9FF;
 	color: #FFB;
-	font-family: "Walsheim";
+	font-family: "Heebo";
+}
+
+$linkColor: #40DBDB;
+$linkColorVisted: #e85ec4;
+
+a {
+	color: $linkColor;
+	text-decoration: none;
+}
+
+a:hover {
+	color: darken($linkColor, 10%);
+}
+
+a:visited {
+	color: $linkColorVisted;
+}
+
+a:visited:hover{
+	color: darken($linkColorVisted, 10%);
 }
 
 #canvas{

@@ -16,6 +16,9 @@ function Splash(level, origin, secondary, speed, decay){
 	this.canvas = this.prototype.canvas;
 	this.context = this.prototype.context;
 
+	// this.color = (Math.random() > 0.5) ? [0, 155, 155] : [229, 72, 188];
+	this.color = [0, 155, 155];
+
 	this.init();
 };
 
@@ -65,7 +68,7 @@ Splash.prototype.draw = function() {
 
 	var _c = Math.floor(255 * this.strength);
 
-	this.context.strokeStyle = "rgba(0,155,155, " + this.strength + ")";
+	this.context.strokeStyle = "rgba(" + this.color.join() + ", " + this.strength + ")";
 
 	this.context.lineWidth = (this.level + 1) * 5 * this.strength;
 	this.context.beginPath();
