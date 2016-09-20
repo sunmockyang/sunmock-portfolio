@@ -1,0 +1,20 @@
+.img-gallery {
+	// text-align: center;
+	margin-top: 2rem;
+}
+
+.photo {
+	max-width: 80vw;
+	max-height: 70vh;
+
+	margin-right: 0.5rem;
+}
+
+.work-showcase {
+	margin-top: 1rem;
+}
+
+.work-showcase .photo {
+	border: 0.25rem solid #EEE;
+	border-radius: 0.5rem;
+}

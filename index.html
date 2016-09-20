@@ -3,14 +3,14 @@
 <meta charset="utf-8" />
 <head>
 	<title>Sunmock Yang's Portfolio Website</title>
-	<!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'> -->
-	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
 	<link href='style.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-	<div class="title">
+	<div id="introTitle" class="title">
 		Sunmock Yang
 		<div class="subtitle">
 			Hello there! I like music, programming, and a whole lotta things in between. Here's a glimpse into my head.
@@ -23,18 +23,47 @@
 
 	<div class="wrapper">
 		<div class="section-title">Who am I?</div>
-		<div class="section-text">My name is Sunmock Yang, I am a 24 year old Korean Canadian, programmer, violist, who likes making useful things, making useless things, hanging with friends, and going fishing.</div>
+		<div class="section-text">
+			My name is Sunmock Yang, I am a 24 year old Korean Canadian, programmer, and violist.
+			<br/>
+			I am a software developer at <a href="http://youi.tv">You.i</a> making apps using C++ and Adobe After Effects. 
+			<br/>
+			<br/>
+			I like making useful things, making useless things, hanging with friends, listening to good music, and going fishing.
+			<br/>
+
+			<div class="img-gallery">
+				<img class="photo" src="img/sunmock_osaka.jpg" />
+				<img class="photo" src="img/sunmock_fish.jpg" />
+			</div>
+			<br/>
+		</div>
+		<div class="section-title">I've made some things:</div>
+		<div class="section-text">
+			<div class="work-text">
+			<div class="work-title"><a href="http://underground.priscillahwang.com">Underground.</a></div>
+			<div class="work-description">&nbsp;- A multimedia article created for a masters in journalism thesis.</div>
+			</div>
+			<div class="work-showcase img-gallery">
+				<img class="photo" src="img/underground.jpg" />
+			</div>
+		</div>
 	</div>
 
+	<div class="bottom-buffer"></div>
+
 	<script type="text/javascript">
-	var app = null;
+	var SplashApp = null;
+	var ContentController = null;
 
 	function init(){
-		app = new SplashApp(document.getElementById('canvas'));
+		SplashApp = new SplashApp(document.getElementById('canvas'));
+		ContentController = new ContentController();
 	}
 
 	function onresize(){
-        app.onresize();
+        SplashApp.onresize();
+        ContentController.onresize();
 	}
 
     document.body.onresize = onresize;
@@ -44,10 +73,12 @@
                               window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 	</script>
 
+	<script type="text/javascript" src="scripts/Utils.js"></script>
 	<script type="text/javascript" src="scripts/SplashApp.js"></script>
 	<script type="text/javascript" src="scripts/Math.js"></script>
 	<script type="text/javascript" src="scripts/LibraryMouse.min.js"></script>
 	<script type="text/javascript" src="scripts/Splash.js"></script>
 	<script type="text/javascript" src="scripts/Particle.js"></script>
+	<script type="text/javascript" src="scripts/ContentController.js"></script>
 </body>
 </html>

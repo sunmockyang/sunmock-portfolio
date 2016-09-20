@@ -1,4 +1,5 @@
 @import "fonts";
+@import "image";
 
 body{
 	margin: 0px;
@@ -55,7 +56,25 @@ $content-width: 38rem;
 .wrapper {
 	width:80%;
 	margin: 0 auto;
-	margin-top: 95vh;
+	margin-top: 90vh;
+}
+
+.bottom-buffer {
+	margin-top: 50vh;
+}
+
+.section-title {
+	margin-top: 5rem;
+	font-size: 2.5rem;
+}
+
+.work-text {
+	margin-top: 1rem;
+	font-size: 1rem;
+}
+
+.work-title {
+	float: left;
 }
 
 @media only screen and (max-width: 775px), only screen and (max-device-width: 775px) {
