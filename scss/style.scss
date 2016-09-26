@@ -1,11 +1,19 @@
 @import "fonts";
 
+$text-color: #FFB;
+$background-color: #150503;
+
 body{
 	margin: 0px;
-	background-color: #150503;
+	background-color: $background-color;
 	color: #9FF;
-	color: #FFB;
-	font-family: "Heebo";
+	color: $text-color;
+	font-family: "Walsheim", Arial, sans-serif;
+	line-height: 1.3;
+}
+
+span {
+	font-family: Arial, sans-serif;
 }
 
 $linkColor: #40DBDB;
@@ -13,19 +21,23 @@ $linkColorVisted: #e85ec4;
 
 a {
 	color: $linkColor;
+	fill: lighten($linkColor, 15%);
 	text-decoration: none;
 }
 
 a:hover {
 	color: darken($linkColor, 10%);
+	fill: darken($linkColor, 10%);
 }
 
 a:visited {
 	color: $linkColorVisted;
+	fill: lighten($linkColorVisted, 15%);
 }
 
 a:visited:hover{
 	color: darken($linkColorVisted, 10%);
+	fill: darken($linkColorVisted, 15%);
 }
 
 #canvas{
@@ -35,37 +47,112 @@ a:visited:hover{
 	z-index: -2;
 }
 
-$content-width: 38rem;
+$wrapper-margin: 4vw;
+$wrapper-width: 30vw;
+
+.wrapper {
+	background-color: rgba(11, 11, 11, 0.5);
+
+	position: absolute;
+	height: 100%;
+	width: $wrapper-width;
+	right: 0;
+	padding: 0 $wrapper-margin;
+
+	font-size: $wrapper-width/26;
+}
+
+.headshot {
+	display: block;
+	margin: 0 auto;
+	margin-top: $wrapper-margin;
+	border-radius: 100vw;
+	border: solid white 0.25vw;
+	width: 65%;
+}
 
 .title {
-	position: fixed;
-	font-size: 5rem;
-	width: 80%;
-	margin: 0 auto;
-	left: 50%;
-	top: 40%;
-	transform: translate(-50%, -50%);
+	margin-top: 1.5vw;
+	font-size: $wrapper-width/6.7;
+	text-align: center;
 }
 
 .subtitle {
-	font-size: 1rem;
-	margin:0 auto;
+	margin-top: -0.5vw;
+	// margin-left: 0.5vw;
+	color: #FFF;
+	text-align: center;
 }
 
-.wrapper {
-	width:80%;
-	margin: 0 auto;
-	margin-top: 95vh;
+$section-margin-top: 5vh;
+
+.description {
+	margin-top: 1.5vw;
 }
 
-@media only screen and (max-width: 775px), only screen and (max-device-width: 775px) {
-	.title {
-		text-align: center;
-		font-size: 10vw;
+.contact {
+	margin-top: 2.5vw;
+	// text-align: center;
+	color: #FFF;
+}
+
+.link {
+	margin-top: 0.75vw;
+}
+
+$icon-size: 1.5vw;
+.link .icon {
+	width: $icon-size;
+	height: $icon-size;
+	// fill: #FFF;
+	margin-right: 1vw;
+	display: inline-block;
+	float: left;
+}
+
+.icon svg {
+	width:100%;
+	height: 100%;
+}
+
+.link .name {
+	display: inline-block;
+}
+
+@media only screen and (max-width: 65rem), only screen and (max-device-width: 65rem) {
+	$scale-ratio: 1.5;
+	.wrapper {
+		width: $wrapper-width * $scale-ratio;
+		font-size: $wrapper-width/26 * $scale-ratio;
 	}
 
-	.subtitle {
-		// width: 100%;
-		text-align: center;
+	.headshot {
+		border: solid white 0.25vw * $scale-ratio;
+	}
+	.title {
+		font-size: $wrapper-width/6.7 * $scale-ratio;
+	}
+	.link .icon {
+		width: $icon-size * $scale-ratio;
+		height: $icon-size * $scale-ratio;
+	}
+}
+
+@media only screen and (max-width: 45rem), only screen and (max-device-width: 45rem) {
+	$scale-ratio: (100vw - $wrapper-margin * 2) / $wrapper-width;
+	.wrapper {
+		width: $wrapper-width * $scale-ratio;
+		font-size: $wrapper-width/26 * $scale-ratio;
+	}
+
+	.headshot {
+		border: solid white 0.25vw * $scale-ratio;
+	}
+	.title {
+		font-size: $wrapper-width/6.7 * $scale-ratio;
+	}
+	.link .icon {
+		width: $icon-size * $scale-ratio;
+		height: $icon-size * $scale-ratio;
 	}
 }

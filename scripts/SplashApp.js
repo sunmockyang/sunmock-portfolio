@@ -19,9 +19,9 @@ function SplashApp(canvas) {
 	this.particles = [];
 	this.lastSplashFrame = 0;
 
-	// this.mouse = new LibraryMouse(this.canvas);
-	// this.mouse.addEventListener("mousemove", this.onmousemove.bind(this));
-	// this.mouse.addEventListener("mousedown", this.onmousemove.bind(this));
+	this.mouse = new LibraryMouse(this.canvas);
+	this.mouse.addEventListener("mousemove", this.onmousemove.bind(this));
+	this.mouse.addEventListener("mousedown", this.onmousemove.bind(this));
 
 	this.onresize();
 	this.run();
