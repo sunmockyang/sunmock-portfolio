@@ -1,8 +1,9 @@
 // SplashApp.js - Sunmock Yang Aug. 2016
 
 // App singleton
-function SplashApp(canvas) {
+function SplashApp(canvas, overlay) {
 	this.canvas = canvas;
+	this.overlay = overlay;
 	this.context = this.canvas.getContext("2d");
 
 	// Base draw object class
@@ -19,7 +20,7 @@ function SplashApp(canvas) {
 	this.particles = [];
 	this.lastSplashFrame = 0;
 
-	this.mouse = new LibraryMouse(this.canvas);
+	this.mouse = new LibraryMouse(document.body);
 	this.mouse.addEventListener("mousemove", this.onmousemove.bind(this));
 	this.mouse.addEventListener("mousedown", this.onmousemove.bind(this));
 
@@ -106,12 +107,12 @@ SplashApp.prototype.onresize = function() {
     };
 };
 
-SplashApp.prototype.onmousemove = function() {
-	this.spawnSplash(new Vector(this.mouse.x, this.mouse.y));
+SplashApp.prototype.onmousemove = function(e) {
+	this.spawnSplash(new Vector(e.clientX, e.clientY));
 };
 
-SplashApp.prototype.onmouseclick = function() {
-	this.spawnSplash(new Vector(this.mouse.x, this.mouse.y));
+SplashApp.prototype.onmouseclick = function(e) {
+	this.spawnSplash(new Vector(e.clientX, e.clientY));
 };
 
 SplashApp.prototype.run = function() {

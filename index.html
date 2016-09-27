@@ -13,7 +13,7 @@
 	<canvas id="canvas" width="1000px" height="600px">
 		Welcome to Sunmock Yang's personal website.
 	</canvas>
-	<div class="wrapper">
+	<div class="wrapper" id="mouseElem">
 		<img class="headshot" src="img/sunmock.jpg"/>
 		<div class="title">Sunmock Yang</div>
 		<div class="subtitle">
@@ -60,7 +60,9 @@
 	var app = null;
 
 	function init(){
-		app = new SplashApp(document.getElementById('canvas'));
+		var canvas    = document.getElementById('canvas'),
+			mouseElem = document.getElementById("mouseElem");
+		app = new SplashApp(canvas, mouseElem);
 	}
 
 	function onresize(){
