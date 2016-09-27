@@ -54,7 +54,7 @@ $wrapper-width: 30vw;
 	background-color: rgba(11, 11, 11, 0.5);
 
 	position: absolute;
-	height: 100%;
+	min-height: 100%;
 	width: $wrapper-width;
 	right: 0;
 	padding: 0 $wrapper-margin;
@@ -119,7 +119,7 @@ $icon-size: 1.5vw;
 	display: inline-block;
 }
 
-@media only screen and (max-width: 65rem), only screen and (max-device-width: 65rem) {
+@media only screen and (max-width: 75rem), only screen and (max-device-width: 75rem) {
 	$scale-ratio: 1.5;
 	.wrapper {
 		width: $wrapper-width * $scale-ratio;
@@ -139,8 +139,9 @@ $icon-size: 1.5vw;
 }
 
 @media only screen and (max-width: 45rem), only screen and (max-device-width: 45rem) {
-	$scale-ratio: (100vw - $wrapper-margin * 2) / $wrapper-width;
+	$scale-ratio: (100vw - $wrapper-margin * 2 * 2) / $wrapper-width;
 	.wrapper {
+		padding: 0 $wrapper-margin * 2;
 		width: $wrapper-width * $scale-ratio;
 		font-size: $wrapper-width/26 * $scale-ratio;
 	}
@@ -154,5 +155,8 @@ $icon-size: 1.5vw;
 	.link .icon {
 		width: $icon-size * $scale-ratio;
 		height: $icon-size * $scale-ratio;
+	}
+	.link {
+		margin-top: 0.75vw * $scale-ratio;
 	}
 }
