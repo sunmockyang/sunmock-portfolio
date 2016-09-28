@@ -68,11 +68,11 @@ $wrapper-width: 30vw;
 	margin-top: $wrapper-margin;
 	border-radius: 100vw;
 	border: solid white 0.25vw;
-	width: 65%;
+	width: 55%;
 }
 
 .title {
-	margin-top: 1.5vw;
+	margin-top: 1.2vw;
 	font-size: $wrapper-width/6.7;
 	text-align: center;
 }
@@ -91,7 +91,7 @@ $section-margin-top: 5vh;
 }
 
 .contact {
-	margin-top: 2.5vw;
+	// margin-top: 2.5vw;
 	// text-align: center;
 	color: #FFF;
 }
