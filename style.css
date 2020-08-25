@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Walsheim';
+  src: url("fonts/GT-Walsheim-Pro-Trial-Regular.otf"); }
+@font-face {
+  font-family: 'Aller';
+  src: url("fonts/Aller_Rg.ttf"); }
+body {
+  margin: 0px;
+  background-color: #150503;
+  color: #9FF;
+  color: #FFB;
+  font-family: "Walsheim", Arial, sans-serif;
+  line-height: 1.3; }
+
+span {
+  font-family: Arial, sans-serif; }
+
+a {
+  color: #40DBDB;
+  fill: #80e7e7;
+  text-decoration: none; }
+
+a:hover {
+  color: #25c3c3;
+  fill: #25c3c3; }
+
+a:visited {
+  color: #e85ec4;
+  fill: #f2a1dd; }
+
+a:visited:hover {
+  color: #e231b4;
+  fill: #da1fa9; }
+
+#canvas {
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  z-index: -2; }
+
+.wrapper {
+  background-color: rgba(11, 11, 11, 0.5);
+  position: absolute;
+  min-height: 100%;
+  width: 30vw;
+  right: 0;
+  padding: 0 4vw;
+  font-size: 1.15385vw; }
+
+.headshot {
+  display: block;
+  margin: 0 auto;
+  margin-top: 4vw;
+  border-radius: 100vw;
+  border: solid white 0.25vw;
+  width: 55%; }
+
+.title {
+  margin-top: 1.2vw;
+  font-size: 4.47761vw;
+  text-align: center; }
+
+.subtitle {
+  margin-top: -0.5vw;
+  color: #FFF;
+  text-align: center; }
+
+.description {
+  margin-top: 1.5vw; }
+
+.contact {
+  color: #FFF; }
+
+.link {
+  margin-top: 0.75vw; }
+
+.link .icon {
+  width: 1.5vw;
+  height: 1.5vw;
+  margin-right: 1vw;
+  display: inline-block;
+  float: left; }
+
+.icon svg {
+  width: 100%;
+  height: 100%; }
+
+.link .name {
+  display: inline-block; }
+
+@media only screen and (max-width: 75rem), only screen and (max-device-width: 75rem) {
+  .wrapper {
+    width: 45vw;
+    font-size: 1.73077vw; }
+
+  .headshot {
+    border: solid white 0.375vw; }
+
+  .title {
+    font-size: 6.71642vw; }
+
+  .link .icon {
+    width: 2.25vw;
+    height: 2.25vw; } }
+@media only screen and (max-width: 45rem), only screen and (max-device-width: 45rem) {
+  .wrapper {
+    padding: 0 8vw;
+    width: 84vw;
+    font-size: 3.23077vw; }
+
+  .headshot {
+    border: solid white 0.7vw; }
+
+  .title {
+    font-size: 12.53731vw; }
+
+  .link .icon {
+    width: 4.2vw;
+    height: 4.2vw; }
+
+  .link {
+    margin-top: 2.1vw; } }
+
+/*# sourceMappingURL=style.css.map */
